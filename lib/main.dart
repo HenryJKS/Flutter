@@ -1,46 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:projeto/constant.dart';
+import 'package:projeto/pages/calculadora_page.dart';
+
 
 void main() {
-  runApp(
-    MaterialApp(
-      home: HomePage(),
-    ),
-  );
+  runApp(const MyApp());
 }
 
-class HomePage extends StatefulWidget {
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
 
-class _HomePageState extends State<HomePage> {
-  int contador = 0;
-  String msg = '';
-
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('$contador'),
-      ),
-      body: Center(
-        child: Text('$msg'),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _increment,
-        backgroundColor: Color.fromARGB(255, 0, 230, 8),
-        child: Icon(Icons.add),
-      ),
-    );
-  }
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Calculadora IMC',
+          theme: ThemeData.dark().copyWith(
+        primaryColor: kBackgroundColor,
+        scaffoldBackgroundColor: kBackgroundColor,
+        appBarTheme: AppBarTheme().copyWith(
+          backgroundColor: kBackgroundColor,
+        ),
 
-  void _increment() {
-    setState(() {
-      if (contador < 10) {
-        contador++;
-      } else {
-        msg = 'Atingiu limite';
-      }
-    });
+      ),
+      home: CalculadoraPage(),
+    );
   }
 }
