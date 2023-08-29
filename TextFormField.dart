@@ -107,7 +107,7 @@ class MyCustomFormState extends State<MyCustomForm> {
 
   Widget buildPassword() => TextFormField(
     validator: (value) {
-      if(value == null || value.isEmpty) {
+      if(value == null || value.length() < 5) {
         return 'Minimo 5 Caracteres';
       }
       return null;
