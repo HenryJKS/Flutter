@@ -65,4 +65,17 @@ class TransacoesReepository {
 
     await supabase.from('transacoes').delete().match({'id': id});
   }
+
+  Future somarTransacao(int id) async {
+    final supabase = Supabase.instance.client;
+
+    final result = await supabase
+        .from('transacoes')
+        .select('tipo_transacao, sum(valor)')
+        .match({'id': id});
+
+    final lucroxdespesa = result.data();
+
+    return lucroxdespesa;
+  }
 }
