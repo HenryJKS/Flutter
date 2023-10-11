@@ -12,14 +12,16 @@ class DashBoardPage extends StatefulWidget {
 
 class _DashBoardPageState extends State<DashBoardPage> {
   User? user;
+  final transacoesRepository = TransacoesReepository();
 
   @override
   void initState() {
     user = Supabase.instance.client.auth.currentUser;
-    final trasancaorepo = await TransacoesReepository().somarTransacao(userId: user?.id ?? '');
+    final sumTransacoes = transacoesRepository.somarTransacao(user);
     super.initState();
-  }
 
+    sumTransacoes.then((value) => print(value));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +30,12 @@ class _DashBoardPageState extends State<DashBoardPage> {
           title: const Text('Receitas x Despesas'),
         ),
         drawer: const UserDrawer(),
-        // criar um corpo mostrando um grafico de pizza
-        body: Center(
-          child: PieChart(dataMap:),
+        body: const Center(
+          child: PieChart(dataMap: 
+          {
+            "Receitas": 1000,
+            "Despesas": 500,
+          },),
         ));
   }
 }
