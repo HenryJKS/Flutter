@@ -24,6 +24,7 @@ class _TransacoesPageState extends State<TransacoesPage> {
   void initState() {
     user = Supabase.instance.client.auth.currentUser;
     futureTransacoes = transacoesRepo.listarTransacoes(userId: user?.id ?? '');
+    
     super.initState();
   }
 

@@ -1,6 +1,9 @@
 import 'package:expense_tracker/pages/conta_cadastro_page.dart';
 import 'package:expense_tracker/pages/home_page.dart';
 import 'package:expense_tracker/pages/login_page.dart';
+import 'package:expense_tracker/pages/meta_detalhes_page.dart';
+import 'package:expense_tracker/pages/meta_enviar_dinheiro.dart';
+import 'package:expense_tracker/pages/metas_cadastro_page.dart';
 import 'package:expense_tracker/pages/registar_page.dart';
 import 'package:expense_tracker/pages/splash_page.dart';
 import 'package:expense_tracker/pages/transacao_cadastro_page.dart';
@@ -39,6 +42,9 @@ class MyApp extends StatelessWidget {
         "/transacao-detalhes": (context) => const TransacaoDetalhesPage(),
         "/transacao-cadastro": (context) => const TransacaoCadastroPage(),
         "/conta-cadastro": (context) => const ContaCadastroPage(),
+        "/meta-cadastro": (context) => const MetasCadastroPage(),
+        "/meta-detalhes": (context) => const MetaDetalhesPage(),
+        "/meta-enviar-dinheiro": (context) => const MetaEnviarDinheiro(),
       },
       initialRoute: "/splash",
     );

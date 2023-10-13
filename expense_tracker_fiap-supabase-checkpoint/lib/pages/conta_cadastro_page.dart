@@ -102,11 +102,11 @@ class _ContaCadastroPageState extends State<ContaCadastroPage> {
         ),
         DropdownMenuEntry(
           value: TipoConta.contaInvestimento,
-          label: "Despesa",
+          label: "Conta Investimento",
         ),
         DropdownMenuEntry(
           value: TipoConta.contaPoupanca,
-          label: "Despesa",
+          label: "Conta Poupança",
         ),
       ],
       onSelected: (value) {
