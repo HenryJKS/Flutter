@@ -38,7 +38,7 @@ class _MetaDetalhesPageState extends State<MetaDetalhesPage> {
                 ElevatedButton(
                   onPressed: () {
                     Navigator.pushNamed(context, '/meta-enviar-dinheiro',
-                        arguments: meta);
+                        arguments: meta.id);
                   },
                   child: const Text('Enviar Dinheiro'),
                 ),

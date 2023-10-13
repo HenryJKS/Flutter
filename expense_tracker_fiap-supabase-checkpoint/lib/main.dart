@@ -2,7 +2,7 @@ import 'package:expense_tracker/pages/conta_cadastro_page.dart';
 import 'package:expense_tracker/pages/home_page.dart';
 import 'package:expense_tracker/pages/login_page.dart';
 import 'package:expense_tracker/pages/meta_detalhes_page.dart';
-import 'package:expense_tracker/pages/meta_enviar_dinheiro.dart';
+import 'package:expense_tracker/pages/meta_enviar_dinheiro_page.dart';
 import 'package:expense_tracker/pages/metas_cadastro_page.dart';
 import 'package:expense_tracker/pages/registar_page.dart';
 import 'package:expense_tracker/pages/splash_page.dart';
@@ -44,7 +44,13 @@ class MyApp extends StatelessWidget {
         "/conta-cadastro": (context) => const ContaCadastroPage(),
         "/meta-cadastro": (context) => const MetasCadastroPage(),
         "/meta-detalhes": (context) => const MetaDetalhesPage(),
-        "/meta-enviar-dinheiro": (context) => const MetaEnviarDinheiro(),
+      },
+      onGenerateRoute: (settings) {
+        if (settings.name == '/meta-enviar-dinheiro') {
+          final idMeta = settings.arguments as int;
+          return MaterialPageRoute(builder: (context) => MetaEnviarDinheiro(idMeta: idMeta));
+        }
+        return MaterialPageRoute(builder: (context) => const HomePage());
       },
       initialRoute: "/splash",
     );

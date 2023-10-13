@@ -5,7 +5,8 @@ class MetaDinheiroEnviadoRepository {
   Future cadastrarDinheiroEnviado(MetaDinheiroEnviado metaDinheiroEnviado) async {
     final supabase = Supabase.instance.client;
 
-    await supabase.from('meu_dinheiro_enviado').insert({
+    await supabase.from('meta_dinheiro_enviado').insert({
+      'criado_em': metaDinheiroEnviado.criadoEm.toIso8601String(),
       'valor_enviado': metaDinheiroEnviado.valorEnviado,
       'id_meta': metaDinheiroEnviado.idMeta
     });

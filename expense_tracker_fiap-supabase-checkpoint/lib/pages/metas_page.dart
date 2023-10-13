@@ -50,7 +50,7 @@ class _MetasPageState extends State<MetasPage> {
               itemBuilder: (context, index) {
                 final meta = metas[index];
                 return ListTile(
-                  leading: const Icon(Icons.money_sharp, color: Colors.green, size: 40),
+                  leading: const Icon(Icons.shopping_bag, color: Colors.lightBlueAccent, size: 30),
                   title: Text(meta.nomeMeta),
                   subtitle: Text(DateFormat('dd/MM/yyyy').format(meta.dataMetaFinal)),
                   trailing: Text(
