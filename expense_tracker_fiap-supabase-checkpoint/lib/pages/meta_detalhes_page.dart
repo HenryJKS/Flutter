@@ -100,7 +100,7 @@ class _MetaDetalhesPageState extends State<MetaDetalhesPage> {
             ),
             SizedBox(
               height:
-                  30, // Ajuste este valor para alterar a espessura da barra de progresso
+                  30,
               child: LinearProgressIndicator(
                 value: (dinheiroAtual ?? 0) / meta.valorMeta,
                 backgroundColor: Colors.grey,
