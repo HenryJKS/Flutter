@@ -57,6 +57,43 @@ VALUES
     ('Vendas', 0, 61216, 4283215696);
 
 
+DECLARE
+  total double precision;
+BEGIN
+  select
+    sum(valor) into total
+  from
+    transacoes
+  where
+    tipo_transacao = 1
+    and transacoes.user_id = transacoes.user_id;
+
+  RETURN total;
+END; 
+
+
+DECLARE
+  total double precision;
+BEGIN
+  select
+    sum(valor) into total
+  from
+    transacoes
+  where
+    tipo_transacao = 0
+    and transacoes.user_id = transacoes.user_id;
+
+  RETURN total;
+END; 
+
+DECLARE
+  VALOR_TOTAL float;
+BEGIN
+  SELECT SUM(VALOR_ENVIADO) INTO VALOR_TOTAL FROM meta_dinheiro_enviado WHERE meta_dinheiro_enviado.id_meta = valor_enviado_id.id;
+  RETURN VALOR_TOTAL;
+END; 
+
+
 
 
 
